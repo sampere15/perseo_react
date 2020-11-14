@@ -1,4 +1,9 @@
-import { DOWNLOADING, DOWNLOADING_SUCCESS, DOWNLOADING_ERROR } from "../actionTypes/mediaTypes";
+import {
+  DOWNLOADING,
+  DOWNLOADING_SUCCESS,
+  DOWNLOADING_ERROR,
+  // SELECT_ITEM,
+} from "../actionTypes/mediaTypes";
 
 //  Import Mock data for testing
 import mockData from "../../mocks/mockData";
@@ -22,6 +27,17 @@ export default function mediaReducer(state = initialState, action) {
         files: action.payload.contents,
         user: action.payload.user,
       };
+    case DOWNLOADING_ERROR:
+      return {
+        downloading: false,
+        files: [],
+        user: null,
+      };
+    // case SELECT_ITEM:
+    //   return {
+    //     ...state,
+    //     fileSelected: action.payload,
+    //   };
     default:
       return state;
   }

@@ -1,4 +1,7 @@
 import React from 'react';
+import {useHistory, Redirect} from "react-router-dom";
+
+//  Material components
 import { makeStyles } from '@material-ui/core/styles';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -10,6 +13,10 @@ import Box from "@material-ui/core/Box";
 import Chip from "@material-ui/core/Chip";
 import StarIcon from '@material-ui/icons/Star';
 
+//  Redux
+// import { useDispatch } from "react-redux";
+// import { selectItemAction } from "../../redux/actions/mediaActions";
+
 const useStyles = makeStyles({
   root: {
     maxWidth: 230,
@@ -19,20 +26,29 @@ const useStyles = makeStyles({
   },
 });
 
-export default function ItemMediaList({file}) {
+export default function MediaItem({file}) {
   const classes = useStyles();
+  // const dispatch = useDispatch();
+  const history = useHistory();
 
   const onFavClick = e => {
     //  Prevent click on lower item
     if (e.stopPropagation) {
       e.stopPropagation();
     }
-    console.log("fav click");
+  }
+
+  //  Call when we click on a item to watch it
+  const goPlay = () => {
+    //  Store the file clicked
+    // dispatch(selectItemAction(file));
+    //  Redirect to player page
+    history.push(`/player/${file.id}`); 
   }
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={goPlay}>
         <CardMedia
           component="img"
           alt="Contemplative Reptile"

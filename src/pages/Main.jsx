@@ -7,7 +7,7 @@ import Container from "@material-ui/core/Container";
 
 //  Redux
 import { useDispatch, useSelector } from "react-redux";
-import { getFiles } from "../redux/actions/mediaActions";
+import { getFilesAction } from "../redux/actions/mediaActions";
 
 export default function Main() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ export default function Main() {
 
 
   // useEffect(() => {
-  //   dispatch(getFiles());
+  //   dispatch(getFilesAction());
   // }, []);
   
   return (
