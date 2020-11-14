@@ -1,11 +1,12 @@
 import { DOWNLOADING, DOWNLOADING_SUCCESS, DOWNLOADING_ERROR } from "../actionTypes/mediaTypes";
 
+//  Import Mock data for testing
+import mockData from "../../mocks/mockData";
+
 const initialState = {
-  files: [], //  files downloaded
-  user: null,
-  lastView: [],
+  files: mockData.contents,
+  user: mockData.user,
   downloading: false, //  if we ara downloading files
-  fileSelected: null, //  file clicked to see its details o play page
 };
 
 export default function mediaReducer(state = initialState, action) {

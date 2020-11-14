@@ -1,8 +1,5 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-//  Component to protect private routes
-import PrivateRoute from "../components/routes/PrivateRoute";
-
 //  Our pages
 import Login from "../pages/Login";
 import Main from "../pages/Main";
