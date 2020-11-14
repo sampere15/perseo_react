@@ -1,6 +1,6 @@
-import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/auth";
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/authTypes";
 
-import { myaxios as axios } from "../../utils/axios";
+import axiosClient from "../../utils/axios";
 import Swal from "sweetalert2";
 
 //  Action for login
@@ -28,7 +28,7 @@ export function loginAction(userData) {
         },
       });
 
-      let result = await axios.post("/Login.php", bodyFormData);
+      let result = await axiosClient.post("/Login.php", bodyFormData);
       // console.log(result);
 
       Swal.close();
@@ -65,13 +65,6 @@ export function logoutAction() {
     //  Send the dispatch to delete the token
     dispatch({
       type: LOGOUT,
-    });
-
-    Swal.fire({
-      title: "Logged Out",
-      icon: "success",
-      showConfirmButton: false,
-      timer: 1000,
     });
   };
 }

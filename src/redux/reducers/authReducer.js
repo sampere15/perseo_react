@@ -1,4 +1,4 @@
-import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/auth";
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/authTypes";
 
 const initialState = {
   loading: false, //  waiting for the loggin response
