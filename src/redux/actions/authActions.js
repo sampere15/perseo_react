@@ -1,4 +1,4 @@
-import { LOGGINGIN, LOGIN_SUCCESS, LOGIN_ERROR } from "../actionTypes/auth";
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/auth";
 
 import { myaxios as axios } from "../../utils/axios";
 import Swal from "sweetalert2";
@@ -9,7 +9,7 @@ export function loginAction(userData) {
     try {
       //  Change the state
       dispatch({
-        type: LOGGINGIN,
+        type: LOADING,
       });
 
       //  Preparing post data
@@ -49,5 +49,21 @@ export function loginAction(userData) {
         type: LOGIN_ERROR,
       });
     }
+  };
+}
+
+//  Function for logout
+export function logoutAction() {
+  return (dispatch) => {
+    //  Send the dispatch to delete the token
+    dispatch({
+      type: LOGOUT,
+    });
+
+    Swal.fire({
+      title: "Log Out",
+      icon: "success",
+      timer: 1000,
+    });
   };
 }

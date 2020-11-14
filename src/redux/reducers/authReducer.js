@@ -1,29 +1,38 @@
-import { LOGGINGIN, LOGIN_SUCCESS, LOGIN_ERROR } from "../actionTypes/auth";
+import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/auth";
 
 const initialState = {
-  loggingin: false, //  waiting for the loggin response
+  loading: false, //  waiting for the loggin response
   auth: false, //  if we are logged
 };
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case LOGGINGIN:
+    case LOADING:
       return {
         ...state,
-        loggingin: true,
+        loading: true,
       };
     case LOGIN_ERROR:
       return {
         ...state,
-        loggingin: false,
+        loading: false,
         auth: false,
       };
     case LOGIN_SUCCESS:
+      //  Store auth token needed for API request
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,
-        loggingin: false,
+        loading: false,
         auth: true,
+      };
+    case LOGOUT:
+      //  Delete auth token
+      localStorage.removeItem("token");
+      return {
+        ...state,
+        auth: false,
+        loading: false,
       };
     default:
       return state;
