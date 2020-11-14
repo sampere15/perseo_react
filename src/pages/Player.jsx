@@ -13,20 +13,11 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Chip from "@material-ui/core/Chip";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import Rating from '@material-ui/lab/Rating';
-import { makeStyles } from '@material-ui/core/styles';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 
-const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
-  },
-}));
-
 export default function Player(props) {
-  const classes = useStyles();
   const [showLoading, setShowLoading] = useState(false);
   const [file, setFile] = useState(null);
   const fileId = props.match.params.id;
@@ -60,7 +51,7 @@ export default function Player(props) {
   return (
     <div>
       <Header />
-      <Backdrop className={classes.backdrop} open={showLoading}>
+      <Backdrop className="backdrop" open={showLoading}>
         <CircularProgress color="inherit"  />
       </Backdrop>
       {file &&
