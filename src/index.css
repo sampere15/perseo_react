@@ -15,6 +15,19 @@ code {
     monospace;
 }
 
+.topbar-container {
+  display: flex;
+}
+
+.topbar-title {
+  flex-grow: 1;
+  display: block;
+}
+
+.topbar-search {
+  align-self: flex-end;
+}
+
 .box-center-vertically {
   display: flex;
   height: 100vh;

@@ -33,10 +33,17 @@ export function loginAction(userData) {
 
       Swal.close();
 
-      dispatch({
-        type: LOGIN_SUCCESS,
-        payload: result.data,
-      });
+      //  Checking no error on response
+      if (!result.data.error) {
+        dispatch({
+          type: LOGIN_SUCCESS,
+          payload: result.data,
+        });
+      } else {
+        dispatch({
+          type: LOGIN_ERROR,
+        });
+      }
 
       //  Hide "sending data"
     } catch (error) {
@@ -61,8 +68,9 @@ export function logoutAction() {
     });
 
     Swal.fire({
-      title: "Log Out",
+      title: "Logged Out",
       icon: "success",
+      showConfirmButton: false,
       timer: 1000,
     });
   };
