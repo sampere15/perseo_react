@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 //  Redux
 import { useSelector, useDispatch } from "react-redux";
@@ -27,6 +28,7 @@ export default function Header() {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
+  const history = useHistory();
 
   //  Redux
   const dispatch = useDispatch();
@@ -41,7 +43,12 @@ export default function Header() {
 
   //  Call action for sign out and delete auth token
   const logout = () => {
+    //  Close menu
+    setAnchorEl(null);
+    //  Action to delete token and mark auth state as false
     dispatch(logoutAction());
+    //  Redirect to login pagen
+    history.push("/login");
   }
 
   return (
