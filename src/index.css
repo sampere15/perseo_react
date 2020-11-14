@@ -49,3 +49,8 @@ code {
   font-weight: bold;
   margin-bottom: 2rem !important;
 }
+
+.player-container {
+  margin: 0;
+  padding: 0;
+}

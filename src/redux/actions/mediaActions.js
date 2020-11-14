@@ -1,10 +1,15 @@
-import { DOWNLOADING, DOWNLOADING_SUCCESS, DOWNLOADING_ERROR } from "../actionTypes/mediaTypes";
+import {
+  DOWNLOADING,
+  DOWNLOADING_SUCCESS,
+  DOWNLOADING_ERROR,
+  // SELECT_ITEM,
+} from "../actionTypes/mediaTypes";
 
 import axiosClient from "../../utils/axios";
 import { logoutAction } from "./authActions";
 
 //  Action for download files for the main page
-export function getFiles() {
+export function getFilesAction() {
   return async (dispatch) => {
     try {
       //  Check if we dont have token, lets log out
@@ -31,6 +36,19 @@ export function getFiles() {
       });
     } catch (error) {
       console.log(error);
+      dispatch({
+        type: DOWNLOADING_ERROR,
+      });
     }
   };
 }
+
+//  Action when we click on an item to watch it
+// export function selectItemAction(item) {
+//   return (dispatch) => {
+//     dispatch({
+//       type: SELECT_ITEM,
+//       payload: item,
+//     });
+//   };
+// }

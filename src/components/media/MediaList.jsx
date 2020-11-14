@@ -5,7 +5,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 
-import ItemMediaList from "./ItemMediaList";
+import MediaItem from "./MediaItem";
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -51,7 +51,7 @@ export default function MediaList(props) {
           <Grid container justify="flex-start" spacing={1}>
             {files.map( file => (
               <Grid key={file.id} item>
-                <ItemMediaList file={file} />
+                <MediaItem file={file} />
               </Grid>
             ))}
           </Grid>
