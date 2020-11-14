@@ -14,6 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Avatar from '@material-ui/core/Avatar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,7 @@ export default function Header() {
 
   //  Redux
   const dispatch = useDispatch();
+  const { avatar } = useSelector(state => state.media.user);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -67,7 +69,11 @@ export default function Header() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                <AccountCircle />
+                {avatar !== null && avatar !== undefined ?
+                  <Avatar alt="Remy Sharp" src={avatar} />
+                :
+                  <AccountCircle />
+                }
               </IconButton>
               <Menu
                 id="menu-appbar"
