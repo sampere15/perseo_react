@@ -9,13 +9,17 @@ import {
   emailValidation, 
   requiredValidation
 } from "../utils/ValidationConstraints";
+import md5 from "md5";
 
 //  Redux
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { loginAction } from "../redux/actions/authActions";
 
 export default function Login({history}) {
   const [validationErrors, setValidationErrors] = useState(null);
   const [formData, setFormData] = useState({email: "", password: ""});
+
+  const dispatch = useDispatch();
   const { auth } = useSelector(state => state.auth);
 
   //  If user is logged we redirect to the main pagin
@@ -35,15 +39,19 @@ export default function Login({history}) {
       requiredValidation: formData.password 
     }, {emailValidation, requiredValidation});
 
-    console.log(validationResult);
-
     setValidationErrors(validationResult);
     if(validationResult) {  //  If error, we dont continue
       return;
     }
 
-    //  Send request
-    
+    const userData = {
+      user: formData.email,
+      pass: md5(formData.password),
+      device: "Web"
+    };
+
+    //  Call action who send the request
+    dispatch(loginAction(userData));
   };
 
   //  Function callen when input onChange event is fired
@@ -51,21 +59,21 @@ export default function Login({history}) {
     //  We set key of formData with the value arrived
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value.trim()
     });
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <Box className="box-center-vertically">
         <div className="login-form">
-          <Typography variant="h4">Welcome to Perseo</Typography>
+          <Typography variant="h4">Welcome to Perseo TV</Typography>
           <form onSubmit={onSubmit}>
             <TextField
               className="border-error"
               variant="outlined"
               margin="normal"
-              // required
+              required
               fullWidth
               id="email"
               label="Email Address"
@@ -81,7 +89,7 @@ export default function Login({history}) {
             <TextField
               variant="outlined"
               margin="normal"
-              // required
+              required
               fullWidth
               name="password"
               label="Password"
