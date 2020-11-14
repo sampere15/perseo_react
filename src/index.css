@@ -50,6 +50,11 @@ code {
   margin-bottom: 2rem !important;
 }
 
+.backdrop {
+  color: '#fff';
+  z-index: 100;
+}
+
 .player-container {
   margin: 0;
   padding: 0;
