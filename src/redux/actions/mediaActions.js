@@ -25,8 +25,6 @@ export function getFiles() {
       bodyFormData.append("device", "Web");
       const res = await axiosClient.post("/GetView.php", bodyFormData);
 
-      console.log(res);
-
       dispatch({
         type: DOWNLOADING_SUCCESS,
         payload: res.data,
