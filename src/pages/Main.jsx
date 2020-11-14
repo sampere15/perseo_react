@@ -26,20 +26,22 @@ export default function Main() {
       <Backdrop className="backdrop" open={downloading}>
         <CircularProgress color="inherit"  />
       </Backdrop>
-      <Grid container direction="row" justify="flex-start" alignItems="center" spacing={2}>
-        <MediaList 
-          title="Favourites"
-          files={files.filter( file => user.favs.includes(file.id))}
-        />
-        {/* <MediaList 
-          title="Recently"
-          files={files.filter( file => user.lastShowed.includes(file.id))}
-        />
-        <MediaList 
-          title="All"
-          files={files}
-        /> */}
-      </Grid>
+        {/* <Container className="no-margin-no-padding" fixed style={{backgroundColor: "green"}}> */}
+        <Grid direction="column" className="main-content">
+          <MediaList 
+            title="Favourites"
+            files={files.filter( file => user.favs.includes(file.id))}
+          />
+          <MediaList 
+            title="Recently"
+            files={files.filter( file => user.lastShowed.includes(file.id))}
+          />
+          {/* <MediaList 
+            title="All"
+            files={files}
+          /> */}
+        {/* </Container> */}
+        </Grid>
     </Fragment>
   )
 }
