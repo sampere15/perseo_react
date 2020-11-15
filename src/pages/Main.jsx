@@ -19,29 +19,45 @@ export default function Main() {
   // useEffect(() => {
   //   dispatch(getFilesAction());
   // }, []);
-  
-  return (
+
+  return(
     <Fragment>
       <Header />
-      <Backdrop className="backdrop" open={downloading}>
-        <CircularProgress color="inherit"  />
-      </Backdrop>
-        {/* <Container className="no-margin-no-padding" fixed style={{backgroundColor: "green"}}> */}
-        <Grid direction="column" className="main-content">
-          <MediaList 
-            title="Favourites"
-            files={files.filter( file => user.favs.includes(file.id))}
-          />
-          <MediaList 
-            title="Recently"
-            files={files.filter( file => user.lastShowed.includes(file.id))}
-          />
-          {/* <MediaList 
-            title="All"
-            files={files}
-          /> */}
-        {/* </Container> */}
-        </Grid>
+      <Grid container direction="column">
+        <MediaList 
+          title="Favourites"
+          files={files.filter( file => user.favs.includes(file.id))}
+        />
+        <MediaList 
+          title="Recently"
+          files={files.filter( file => user.lastShowed.includes(file.id))}
+        />
+      </Grid>
     </Fragment>
-  )
+  );
+  
+  // return (
+  //   <Fragment>
+  //     <Header />
+  //     <Backdrop className="backdrop" open={downloading}>
+  //       <CircularProgress color="inherit"  />
+  //     </Backdrop>
+  //       {/* <Container className="no-margin-no-padding" fixed style={{backgroundColor: "green"}}> */}
+  //       <Grid direction="column" className="main-content">
+  //         <MediaList 
+  //           title="Favourites"
+  //           files={files.filter( file => user.favs.includes(file.id))}
+  //         />
+  //         {/* <MediaList 
+  //           title="Recently"
+  //           files={files.filter( file => user.lastShowed.includes(file.id))}
+  //         /> */}
+  //         {/* <MediaList 
+  //           title="All"
+  //           files={files}
+  //         /> */}
+  //       {/* </Container> */}
+  //       </Grid>
+  //   </Fragment>
+  // )
 }

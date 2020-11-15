@@ -73,10 +73,10 @@ export default function Player(props) {
           <Container maxWidth="lg">
             <Grid container direction="row" justify="flex-start" alignItems="center" spacing={2}>
               <Grid item>
-                <Typography variant="h5">{file.title}</Typography>
+                <Typography variant="h4">{file.title}</Typography>
               </Grid>
               <Grid item>
-                <Typography variant="h6">
+                <Typography variant="h5">
                   {new Date(file.duration * 1000).toISOString().substr(11, 5)}
                   <Typography variant="caption">min</Typography>
                 </Typography>
