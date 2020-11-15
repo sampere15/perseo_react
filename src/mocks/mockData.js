@@ -21,7 +21,7 @@ const mockData = {
   contents: [
     {
       id: "fcac80a489a23ce515ad169c1df5ceee",
-      title: "Ad Astra",
+      title: "Avengers",
       cover:
         "https://www.fotoefectos.com/i/775_aparece-portada-pelicula-goodfellas-montaje-online.jpg",
       duration: 7433,
@@ -71,7 +71,7 @@ const mockData = {
     },
     {
       id: "93e0b845fa5a4446352087472b8db064",
-      title: "Ad Astra",
+      title: "Avengers 2",
       cover:
         "https://www.fotoefectos.com/i/775_aparece-portada-pelicula-goodfellas-montaje-online.jpg",
       duration: 7433,
@@ -91,13 +91,13 @@ const mockData = {
     },
     {
       id: "60a4c43b6f73157d5f5e8b1933241dbf",
-      title: "Ad Astra",
+      title: "Avengers 3",
       cover:
         "https://www.fotoefectos.com/i/775_aparece-portada-pelicula-goodfellas-montaje-online.jpg",
       duration: 7433,
       url:
         "https://multiplatform-f.akamaihd.net/i/multi/will/bunny/big_buck_bunny_,640x360_400,640x360_700,640x360_1000,950x540_1500,.f4v.csmil/master.m3u8",
-      section: "Infantil",
+      section: "Action",
     },
     {
       id: "005ca87562c31f47bed5a0436322639d",

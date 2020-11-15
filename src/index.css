@@ -70,9 +70,22 @@ code {
 }
 
 .file-card {
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .file-card-image {
   max-height: 140px;
+}
+
+.media-info {
+  margin-top: 2rem;
+}
+
+.input-search {
+  color: #FFF !important;
+}
+
+.home-link {
+  color: #FFF;
+  text-decoration: none;
 }

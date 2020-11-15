@@ -4,6 +4,8 @@ import {
   DOWNLOADING_ERROR,
   ITEM_FAV_ADD,
   ITEM_FAV_REMOVE,
+  APPLY_FILTER,
+  CLEAR_FILTER,
 } from "../actionTypes/mediaTypes";
 
 const initialState = {
@@ -11,6 +13,8 @@ const initialState = {
   files: [],
   user: null,
   downloading: false, //  if we ara downloading files
+  filter: null,
+  filesFiltered: null,
 };
 
 export default function mediaReducer(state = initialState, action) {
@@ -22,6 +26,7 @@ export default function mediaReducer(state = initialState, action) {
       };
     case DOWNLOADING_SUCCESS:
       return {
+        ...state,
         downloading: false,
         user: action.payload.user,
         // files: action.payload.contents.map((file) => {
@@ -54,6 +59,22 @@ export default function mediaReducer(state = initialState, action) {
             return fileId !== action.payload;
           }),
         },
+      };
+    case APPLY_FILTER:
+      return {
+        ...state,
+        filter: action.payload,
+        filesFiltered: state.files.filter(
+          (file) =>
+            file.title.toLowerCase().includes(action.payload) ||
+            file.section.toLowerCase().includes(action.payload)
+        ),
+      };
+    case CLEAR_FILTER:
+      return {
+        ...state,
+        filter: null,
+        filesFiltered: null,
       };
     default:
       return state;

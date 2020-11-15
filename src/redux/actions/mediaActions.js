@@ -4,6 +4,8 @@ import {
   DOWNLOADING_ERROR,
   ITEM_FAV_ADD,
   ITEM_FAV_REMOVE,
+  APPLY_FILTER,
+  CLEAR_FILTER,
 } from "../actionTypes/mediaTypes";
 
 //  Import Mock data for testing
@@ -64,6 +66,22 @@ export function markItemFavAction(itemId, fav) {
       dispatch({
         type: ITEM_FAV_REMOVE,
         payload: itemId,
+      });
+    }
+  };
+}
+
+//  Action to apply filter and search in the files
+export function filterItemsAction(filter) {
+  return (dispatch) => {
+    if (filter.length > 0) {
+      dispatch({
+        type: APPLY_FILTER,
+        payload: filter.toLowerCase(),
+      });
+    } else {
+      dispatch({
+        type: CLEAR_FILTER,
       });
     }
   };

@@ -13,7 +13,7 @@ import { getFilesAction } from "../redux/actions/mediaActions";
 
 export default function Main() {
   const dispatch = useDispatch();
-  const { files, user, downloading } = useSelector(state => state.media);
+  const { files, user, downloading, filter, filesFiltered } = useSelector(state => state.media);
 
   //  Get user files
   useEffect(() => {
@@ -25,20 +25,30 @@ export default function Main() {
       <Backdrop className="backdrop" open={downloading}>
         <CircularProgress color="inherit"  />
       </Backdrop>
-      <Header />
+      <Header showSearch />
       <Grid container direction="column">
-        <MediaList 
-          title="Favourites"
-          files={files.filter( file => user.favs.includes(file.id))}
-        />
-        <MediaList 
-          title="Recently"
-          files={files.filter( file => user.lastShowed.includes(file.id))}
-        />
-        <MediaList
-          title="Content"
-          files={files}
-        />
+        {filter === null
+        ?
+          <>
+            <MediaList 
+              title="Favourites"
+              files={files.filter( file => user.favs.includes(file.id))}
+            />
+            <MediaList 
+              title="Recently"
+              files={files.filter( file => user.lastShowed.includes(file.id))}
+            />
+            <MediaList
+              title="Content"
+              files={files}
+            />
+          </>
+        :
+          <MediaList 
+            title="Results"
+            files={filesFiltered}
+          />
+        }
       </Grid>
     </Fragment>
   );
