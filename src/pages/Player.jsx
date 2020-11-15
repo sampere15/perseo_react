@@ -70,7 +70,7 @@ export default function Player(props) {
               height="600px"
             />
           </div>
-          <Container maxWidth="lg">
+          <Container maxWidth="lg" className="media-info">
             <Grid container direction="row" justify="flex-start" alignItems="center" spacing={2}>
               <Grid item>
                 <Typography variant="h4">{file.title}</Typography>
