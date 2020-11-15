@@ -2,8 +2,12 @@ import {
   DOWNLOADING,
   DOWNLOADING_SUCCESS,
   DOWNLOADING_ERROR,
-  // SELECT_ITEM,
+  ITEM_FAV_ADD,
+  ITEM_FAV_REMOVE,
 } from "../actionTypes/mediaTypes";
+
+//  Import Mock data for testing
+import mockData from "../../mocks/mockData";
 
 import axiosClient from "../../utils/axios";
 import { logoutAction } from "./authActions";
@@ -24,11 +28,13 @@ export function getFilesAction() {
         type: DOWNLOADING,
       });
 
-      //  Preparing post data
-      const bodyFormData = new FormData();
-      bodyFormData.append("token", token);
-      bodyFormData.append("device", "Web");
-      const res = await axiosClient.post("/GetView.php", bodyFormData);
+      // //  Preparing post data
+      // const bodyFormData = new FormData();
+      // bodyFormData.append("token", token);
+      // bodyFormData.append("device", "Web");
+      // const res = await axiosClient.post("/GetView.php", bodyFormData);
+      let res = {};
+      res.data = mockData;
 
       dispatch({
         type: DOWNLOADING_SUCCESS,
@@ -43,12 +49,22 @@ export function getFilesAction() {
   };
 }
 
-//  Action when we click on an item to watch it
-// export function selectItemAction(item) {
-//   return (dispatch) => {
-//     dispatch({
-//       type: SELECT_ITEM,
-//       payload: item,
-//     });
-//   };
-// }
+//  Action when we click item start to mark it as fav or unmark
+export function markItemFavAction(itemId, fav) {
+  return (dispatch) => {
+    //  Mark as fav
+    if (fav) {
+      dispatch({
+        type: ITEM_FAV_ADD,
+        payload: itemId,
+      });
+    }
+    //  Unmark as fav
+    else {
+      dispatch({
+        type: ITEM_FAV_REMOVE,
+        payload: itemId,
+      });
+    }
+  };
+}

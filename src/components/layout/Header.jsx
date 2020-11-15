@@ -33,7 +33,7 @@ export default function Header() {
 
   //  Redux
   const dispatch = useDispatch();
-  const { avatar } = useSelector(state => state.media.user);
+  const { user } = useSelector(state => state.media);
 
   const handleMenu = (event) => {
     setAnchorEl(event.currentTarget);
@@ -69,8 +69,8 @@ export default function Header() {
                 onClick={handleMenu}
                 color="inherit"
               >
-                {avatar !== null && avatar !== undefined ?
-                  <Avatar alt="Remy Sharp" src={avatar} />
+                {user && user.avatar !== null && user.avatar !== undefined ?
+                  <Avatar alt="Remy Sharp" src={user.avatar} />
                 :
                   <AccountCircle />
                 }

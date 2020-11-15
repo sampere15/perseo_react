@@ -60,6 +60,7 @@ code {
   padding: 0;
 }
 
-.main-content {
-  margin-left: 2rem;
+.list-content {
+  margin: 2rem 0 2rem 2rem !important;
+  padding-right: 2rem;
 }
