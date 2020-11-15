@@ -59,3 +59,7 @@ code {
   margin: 0;
   padding: 0;
 }
+
+.main-content {
+  margin-left: 2rem;
+}

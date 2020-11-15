@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from "prop-types";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
@@ -44,20 +44,21 @@ export default function MediaList(props) {
 //   )
 // }
   return(
-    <Container>
+    // <Grid style={{backgroundColor: "red"}} >
+    <Fragment>
       <h1>{title}</h1>
-      <Grid container className={classes.root}>
-        <Grid item xs={12}>
-          <Grid container justify="flex-start" spacing={1}>
-            {files.map( file => (
-              <Grid key={file.id} item>
-                <MediaItem file={file} />
-              </Grid>
-            ))}
+      <Grid container direction="row" justify="flex-start" alignItems="center" spacing={2}>
+        {files.map( file => (
+          <Grid 
+            item
+            key={file.id} 
+          >
+            <MediaItem file={file} />
           </Grid>
-        </Grid>
+        ))}
       </Grid>
-    </Container>
+      {/* </Grid> */}
+    </Fragment>
   );
 }
 
