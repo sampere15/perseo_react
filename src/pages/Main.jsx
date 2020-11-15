@@ -15,6 +15,7 @@ export default function Main() {
   const dispatch = useDispatch();
   const { files, user, downloading } = useSelector(state => state.media);
 
+  //  Get user files
   useEffect(() => {
     dispatch(getFilesAction());
   }, []);
@@ -33,6 +34,10 @@ export default function Main() {
         <MediaList 
           title="Recently"
           files={files.filter( file => user.lastShowed.includes(file.id))}
+        />
+        <MediaList
+          title="Content"
+          files={files}
         />
       </Grid>
     </Fragment>

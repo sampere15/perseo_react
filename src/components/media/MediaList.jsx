@@ -8,7 +8,7 @@ import MediaItem from "./MediaItem";
 export default function MediaList(props) {
   const {title, files} = props;
 
-  // if(files.length > 0) {
+  if(files.length > 0) {
     return(
       <Grid item className="list-content">
         <Typography variant="h4">{title}</Typography>
@@ -21,10 +21,9 @@ export default function MediaList(props) {
         </Grid>
       </Grid>
     );
-  // }
-  // else {
-  //   return null;
-  // }
+  } else {
+    return null;
+  }
 }
 
 MediaList.propTypes = {
