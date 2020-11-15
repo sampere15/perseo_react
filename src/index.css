@@ -61,5 +61,6 @@ code {
 }
 
 .list-content {
-  margin: 2rem 2rem 0 2rem;
+  margin: 2rem 0 2rem 2rem !important;
+  padding-right: 2rem;
 }

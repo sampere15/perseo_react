@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useHistory, Redirect} from "react-router-dom";
 
 //  Material components
@@ -12,10 +12,11 @@ import Grid from "@material-ui/core/Grid";
 import Box from "@material-ui/core/Box";
 import Chip from "@material-ui/core/Chip";
 import StarIcon from '@material-ui/icons/Star';
+import StarBorderIcon from '@material-ui/icons/StarBorder';
 
 //  Redux
-// import { useDispatch } from "react-redux";
-// import { selectItemAction } from "../../redux/actions/mediaActions";
+import { useDispatch, useSelector } from "react-redux";
+import { markItemFavAction } from "../../redux/actions/mediaActions";
 
 const useStyles = makeStyles({
   root: {
@@ -28,14 +29,24 @@ const useStyles = makeStyles({
 
 export default function MediaItem({file}) {
   const classes = useStyles();
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
+  const {favs} = useSelector(state => state.media.user);
+
+  file.fav = favs.includes(file.id);
+
+  useEffect(() => {
+    file.fav = favs.includes(file.id)
+  }, [favs]);
 
   const onFavClick = e => {
     //  Prevent click on lower item
     if (e.stopPropagation) {
       e.stopPropagation();
     }
+
+    //  We send the opposite of actual
+    dispatch(markItemFavAction(file.id, !file.fav));
   }
 
   //  Call when we click on a item to watch it
@@ -61,9 +72,13 @@ export default function MediaItem({file}) {
             <Typography gutterBottom variant="h5" component="h2">
               {file.title}
             </Typography>
-            <StarIcon style={{ color: "#f9f10a"}} fontSize="large" onClick={onFavClick} />
+            {file.fav
+            ? <StarIcon style={{ color: "#f9f10a"}} fontSize="large" onClick={onFavClick} />
+            : <StarBorderIcon fontSize="large" onClick={onFavClick} />
+            }
           </Box>
           <Grid container>
+            <Typography variant="body1" style={{fontSize: ".71rem"}}>{file.id}</Typography>
             <Grid item>
               <Chip variant="outlined" size="small" label={file.section} />
             </Grid>

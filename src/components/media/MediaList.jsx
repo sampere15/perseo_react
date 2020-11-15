@@ -8,18 +8,23 @@ import MediaItem from "./MediaItem";
 export default function MediaList(props) {
   const {title, files} = props;
 
-  return(
-    <Grid item class="list-content">
-      <Typography variant="h4">{title}</Typography>
-        <Grid container justify="flex-start" spacing={1}>
-        {files.map( file => 
-          <Grid item key={file.id}>
-            <MediaItem file={file} />
-          </Grid>
-        )}
+  // if(files.length > 0) {
+    return(
+      <Grid item className="list-content">
+        <Typography variant="h4">{title}</Typography>
+          <Grid container justify="flex-start" spacing={1}>
+          {files.map( file => 
+            <Grid item key={file.id}>
+              <MediaItem file={file} />
+            </Grid>
+          )}
+        </Grid>
       </Grid>
-    </Grid>
-  );
+    );
+  // }
+  // else {
+  //   return null;
+  // }
 }
 
 MediaList.propTypes = {
