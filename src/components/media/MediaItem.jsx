@@ -58,7 +58,7 @@ export default function MediaItem({file}) {
     <Card className="file-card">
       <CardActionArea onClick={goPlay}>
         <CardMedia
-          className="file-card-image"
+          // className="file-card-image"
           component="img"
           alt={file.title}
           image={file.cover}

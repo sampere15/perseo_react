@@ -10,11 +10,13 @@ export default function MediaList(props) {
 
   if(files.length > 0) {
     return(
-      <Grid item className="list-content">
-        <Typography variant="h4">{title}</Typography>
-          <Grid container justify="flex-start" spacing={1}>
+      <Grid container className="list-content" xs={11}>
+        <Grid xs={12}>
+          <Typography variant="h4">{title}</Typography>
+        </Grid>
+        <Grid container justify="flex-start" spacing={1}>
           {files.map( file => 
-            <Grid item key={file.id}>
+            <Grid item key={file.id} xs={6} sm={4} md={2}>
               <MediaItem file={file} />
             </Grid>
           )}

@@ -11,6 +11,10 @@ body {
   color: #FFF;
 }
 
+.div-header {
+  margin-bottom: 80px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -62,16 +66,16 @@ code {
 
 .list-content {
   margin: 2rem 0 2rem 2rem !important;
-  padding-right: 2rem;
+  /* padding-right: 6rem; */
 }
 
 .login-title {
   color: #333333;
 }
 
-.file-card {
+/* .file-card {
   max-width: 300px;
-}
+} */
 
 .file-card-image {
   max-height: 140px;
@@ -88,4 +92,9 @@ code {
 .home-link {
   color: #FFF;
   text-decoration: none;
+}
+
+.grid-list {
+  flexWrap: nowrap;
+  transform: translateZ(0);
 }

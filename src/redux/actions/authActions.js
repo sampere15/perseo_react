@@ -29,7 +29,7 @@ export function loginAction(userData) {
       });
 
       let result = await axiosClient.post("/Login.php", bodyFormData);
-      // console.log(result);
+      console.log(result);
 
       Swal.close();
 
@@ -42,10 +42,9 @@ export function loginAction(userData) {
       } else {
         dispatch({
           type: LOGIN_ERROR,
+          payload: result.data.message,
         });
       }
-
-      //  Hide "sending data"
     } catch (error) {
       console.log(error);
       //  Hide "sending data"

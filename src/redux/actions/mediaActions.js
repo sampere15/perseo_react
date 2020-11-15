@@ -30,13 +30,15 @@ export function getFilesAction() {
         type: DOWNLOADING,
       });
 
-      // //  Preparing post data
-      // const bodyFormData = new FormData();
-      // bodyFormData.append("token", token);
-      // bodyFormData.append("device", "Web");
-      // const res = await axiosClient.post("/GetView.php", bodyFormData);
-      let res = {};
-      res.data = mockData;
+      //  Preparing post data
+      const bodyFormData = new FormData();
+      bodyFormData.append("token", token);
+      bodyFormData.append("device", "Web");
+      const res = await axiosClient.post("/GetView.php", bodyFormData);
+
+      //  My Mock Data for testing
+      // let res = {};
+      // res.data = mockData;
 
       dispatch({
         type: DOWNLOADING_SUCCESS,

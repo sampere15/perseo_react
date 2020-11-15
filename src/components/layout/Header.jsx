@@ -63,7 +63,7 @@ export default function Header({showSearch = false}) {
   }
 
   return (
-    <div>
+    <div className="div-header">
       <AppBar position="fixed">
         <Toolbar>
           <Grid container direction="row" justify="space-between" alignItems="center">

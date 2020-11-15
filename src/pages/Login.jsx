@@ -20,7 +20,7 @@ export default function Login({history}) {
   const [formData, setFormData] = useState({email: "", password: ""});
 
   const dispatch = useDispatch();
-  const { auth } = useSelector(state => state.auth);
+  const { auth, errorMessage } = useSelector(state => state.auth);
 
   //  If user is logged we redirect to the main pagin
   useEffect(() => {
@@ -68,6 +68,9 @@ export default function Login({history}) {
       <Box className="box-center-vertically">
         <div className="login-form">
           <Typography variant="h4" className="login-title">Welcome to Perseo TV</Typography>
+          {errorMessage &&
+            <Typography className="span-error" variant="h6">{errorMessage}</Typography>
+          }
           <form onSubmit={onSubmit}>
             <TextField
               className="border-error"

@@ -3,6 +3,7 @@ import { LOADING, LOGIN_SUCCESS, LOGIN_ERROR, LOGOUT } from "../actionTypes/auth
 const initialState = {
   loading: false, //  waiting for the loggin response
   auth: false, //  if we are logged
+  errorMessage: false,
 };
 
 export default function authReducer(state = initialState, action) {
@@ -17,6 +18,7 @@ export default function authReducer(state = initialState, action) {
         ...state,
         loading: false,
         auth: false,
+        errorMessage: action.payload,
       };
     case LOGIN_SUCCESS:
       //  Store auth token needed for API request
@@ -25,6 +27,7 @@ export default function authReducer(state = initialState, action) {
         ...state,
         loading: false,
         auth: true,
+        errorMessage: null,
       };
     case LOGOUT:
       //  Delete auth token
