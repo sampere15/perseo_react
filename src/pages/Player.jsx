@@ -67,7 +67,7 @@ export default function Player(props) {
               // playing={true} 
               controls={true} 
               width="100%"
-              height="600px"
+              height="500px"
             />
           </div>
           <Container maxWidth="lg" className="media-info">
