@@ -17,7 +17,11 @@ export default function Main() {
 
   //  Get user files
   useEffect(() => {
-    dispatch(getFilesAction());
+    //  We download files just the first time
+    if(files.length === 0) {
+      dispatch(getFilesAction());
+    }
+    // eslint-disable-next-line
   }, []);
 
   return(

@@ -1,9 +1,8 @@
-import React, {useEffect} from 'react';
-import {useHistory} from "react-router-dom";
+import React, { useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import PropTypes from "prop-types";
 
 //  Material components
-import { makeStyles } from '@material-ui/core/styles';
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
@@ -18,17 +17,7 @@ import StarBorderIcon from '@material-ui/icons/StarBorder';
 import { useDispatch, useSelector } from "react-redux";
 import { markItemFavAction } from "../../redux/actions/mediaActions";
 
-const useStyles = makeStyles({
-  root: {
-    maxWidth: 230,
-  },
-  // media: {
-  //   height: 400,
-  // },
-});
-
 export default function MediaItem({file}) {
-  const classes = useStyles();
   const dispatch = useDispatch();
   const history = useHistory();
   const {favs} = useSelector(state => state.media.user);
@@ -37,6 +26,7 @@ export default function MediaItem({file}) {
 
   useEffect(() => {
     file.fav = favs.includes(file.id)
+    // eslint-disable-next-line
   }, [favs]);
 
   const onFavClick = e => {

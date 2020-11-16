@@ -9,7 +9,7 @@ import {
 } from "../actionTypes/mediaTypes";
 
 //  Import Mock data for testing
-import mockData from "../../mocks/mockData";
+// import mockData from "../../mocks/mockData";
 
 import axiosClient from "../../utils/axios";
 import { logoutAction } from "./authActions";

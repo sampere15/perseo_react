@@ -27,6 +27,7 @@ export default function Login({history}) {
     if(auth) {
       history.push("/");
     }
+    // eslint-disable-next-line
   }, [auth]);
 
   //  

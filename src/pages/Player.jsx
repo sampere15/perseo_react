@@ -23,8 +23,10 @@ export default function Player(props) {
   const fileId = props.match.params.id;
   const history = useHistory();
 
+  //  Download the info
   useEffect(() => {
     downloadFileInfo();
+    // eslint-disable-next-line
   }, []);
 
   //  Function to download file information
