@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import Header from "../components/layout/Header";
+import Header from "../components/layout/header/Header";
 import MediaList from "../components/media/MediaList";
 
 //  Material Components
@@ -42,10 +42,10 @@ export default function Main() {
               title="Recently"
               files={files.filter( file => user.lastShowed.includes(file.id))}
             />
-            <MediaList
+            {/* <MediaList
               title="Content"
               files={files}
-            />
+            /> */}
           </>
         :
           <MediaList 

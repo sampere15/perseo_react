@@ -10,8 +10,8 @@ export default function MediaList(props) {
 
   if(files.length > 0) {
     return(
-      <Grid container className="list-content" xs={11}>
-        <Grid xs={12}>
+      <Grid item container className="list-content" xs={11}>
+        <Grid>
           <Typography variant="h4">{title}</Typography>
         </Grid>
         <Grid container justify="flex-start" spacing={1}>
