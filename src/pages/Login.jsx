@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
-
 //  Redux
 import { useSelector } from "react-redux";
 

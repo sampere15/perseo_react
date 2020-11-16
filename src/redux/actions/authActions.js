@@ -50,7 +50,6 @@ export function loginAction(userData) {
       //  Hide "sending data"
       Swal.close();
       //  Call action that show the error
-
       dispatch({
         type: LOGIN_ERROR,
       });

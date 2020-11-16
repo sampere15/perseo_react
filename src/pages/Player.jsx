@@ -2,9 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import ReactPlayer from 'react-player';
 import Header from "../components/layout/header/Header";
 import { useHistory } from "react-router-dom";
-
 import axiosClient from "../utils/axios";
-
 //  Material components
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";

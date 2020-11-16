@@ -9,10 +9,9 @@ import {
 } from "../actionTypes/mediaTypes";
 
 const initialState = {
-  // files: mockData.contents,
   files: [],
   user: null,
-  downloading: false, //  if we ara downloading files
+  downloading: false,
   filter: null,
   filesFiltered: null,
 };
@@ -29,11 +28,6 @@ export default function mediaReducer(state = initialState, action) {
         ...state,
         downloading: false,
         user: action.payload.user,
-        // files: action.payload.contents.map((file) => {
-        //   //  Check if file is part of favs array
-        //   file.fav = action.payload.user.favs.includes(file.id);
-        //   return file;
-        // }),
         files: action.payload.contents,
       };
     case DOWNLOADING_ERROR:

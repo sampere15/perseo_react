@@ -1,12 +1,10 @@
 import React, { Fragment, useEffect } from 'react';
 import Header from "../components/layout/header/Header";
 import MediaList from "../components/media/MediaList";
-
 //  Material Components
 import Grid from "@material-ui/core/Grid";
 import Backdrop from "@material-ui/core/Backdrop";
 import CircularProgress from "@material-ui/core/CircularProgress";
-
 //  Redux
 import { useDispatch, useSelector } from "react-redux";
 import { getFilesAction } from "../redux/actions/mediaActions";
@@ -42,10 +40,10 @@ export default function Main() {
               title="Recently"
               files={files.filter( file => user.lastShowed.includes(file.id))}
             />
-            {/* <MediaList
+            <MediaList
               title="Content"
               files={files}
-            /> */}
+            />
           </>
         :
           <MediaList 
