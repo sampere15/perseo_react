@@ -8,7 +8,7 @@ const store = createStore(
   // prettier-ignore
   compose(
     applyMiddleware(thunk), 
-    typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__ !== 'undefined'
+    typeof window === "object" && window.__REDUX_DEVTOOLS_EXTENSION__ !== undefined
       ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f
   )
 );
